@@ -1,0 +1,381 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #00ffcc;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: #00ffc8;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #ff00cc;
+}
+
+/* Header */
+.header-glow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px #0ff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+nav a {
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.glitch-text {
+  font-size: 64px;
+  text-transform: uppercase;
+  color: #00ffcc;
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #ff00cc;
+  clip: rect(0, 0, 0, 0);
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  10% {
+    clip: rect(10px, 9999px, 80px, 0);
+  }
+  20% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+  30% {
+    clip: rect(60px, 9999px, 130px, 0);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+}
+
+.tagline {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.btn, .btn-details {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 2px solid #00ffc8;
+  color: #00ffc8;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.neon-glow {
+  box-shadow: 0 0 10px #00ffc8, 0 0 20px #00ffc8;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 5px #0ff;
+  }
+}
+
+/* About Section */
+.section {
+  padding: 80px 40px;
+  text-align: center;
+  background: #050505;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #00ffc8;
+}
+
+.about-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-img {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Events */
+.event-card {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  margin: auto;
+  max-width: 400px;
+  box-shadow: 0 0 20px #00ffc8;
+  color: #fff;
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #666;
+}
+
+.highlight {
+  color: #0ff;
+}
+
+/* Matrix Overlay and Canvas */
+.matrix-overlay {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#circuit-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #0f0;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #0f0; }
+}
+
+.event-card:hover {
+  transform: perspective(600px) rotateY(10deg) scale(1.05);
+  transition: transform 0.4s ease;
+}
+.event-card {
+  transition: transform 0.4s ease;
+}
+/* Responsive */
+@media screen and (min-width: 768px) {
+  .about-panel {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  width: 100%;
+  /* max-width: 100%; */
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #0ff;
+}
+
+.video-styled {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: black;
+}
+
+.member-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.member-card {
+  width: 320px;
+  height: 427px; /* 4:3 ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.member-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.event-card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid #0ff;
+  border-radius: 1rem;
+  overflow: hidden;
+  color: white;
+  transition: transform 0.3s ease;
+}
+.event-card:hover {
+  transform: scale(1.05);
+}
+.event-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.badge {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+.neon-glow {
+  box-shadow: 0 0 8px #0ff, 0 0 16px #0ff;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid #0ff;
+}
+
+footer .highlight {
+  color: #0ff;
+  font-weight: bold;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ff66c4;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.instagram-link:hover {
+  color: #ffffff;
+}
+
+.insta-icon {
+  width: 24px;
+  height: 24px;
+}

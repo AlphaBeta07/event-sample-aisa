@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AISA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="matrix-overlay"></div>
+  <canvas id="circuit-bg"></canvas>
+
+  <header class="header-glow">
+    <div class="logo">AISA</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hologram-brain"></div>
+    <h1 class="glitch-text typewriter" data-text="AISA">AISA</h1>
+    <p class="tagline">Empowering Students through AI, Innovation & Collaboration<br>Pioneering the future of AI technology through collaborative learning, innovation, and cutting-edge research. Join our cybernetic community where students transform into digital architects of tomorrow.</p>
+    <a href="#events" class="btn neon-glow pulse">Explore Events</a>
+  </section>
+  <section id="members" class="section">
+    <h2 class="section-title">Team Members</h2>
+
+    <!-- Video Section -->
+      <div class="flex-center mb-12">
+        <div class="video-container">
+          <video
+            class="video-styled"
+            controls
+            preload="metadata"
+            controlsList="nodownload noplaybackrate"
+            oncontextmenu="return false"
+          >
+            <source src="media/aisa-intro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    <!-- Members Gallery -->
+    <!-- <div class="member-gallery" id="memberGallery"> -->
+      <!-- Cards will be injected via JS -->
+    </div>
+  </section>
+
+  <section id="events" class="section">
+    <h2 class="section-title">Upcoming Event</h2>
+    <div class="event-card glass floating">
+      <h3 class="event-name">Tech Ignition 2025</h3>
+      <p class="event-date">Date: 2 <sup>nd</sup> August 2025</p>
+      <p class="event-location">Venue: Cyber Physical Security Lab</p><br>
+      <a href="event.html" class="btn-details neon-glow">View Details</a>
+    </div>
+  </section>
+
+  <!-- <section id="about" class="section">
+    <h2 class="section-title">About AISA</h2>
+    <div class="about-panel">
+      <p class="section-content">AISA is a next-gen student-run tech club, fusing AI, tech innovation, and collaboration to shape the future. We host electrifying workshops, hackathons, and symposiums for visionary students.</p>
+      <!--<img src="ai-collab.png" alt="AI Collaboration" class="about-img" /> -->
+    <!--</div>
+  </section> -->
+
+  <footer>
+    <div class="social-icons">
+      <div class="social-icons">
+        <a
+          href="https://www.instagram.com/aisa.dkte?igsh=ajgyejg3MDdzZGNv"
+          target="_blank"
+          rel="noopener"
+          class="instagram-link"
+          onclick="toggleInstaIcon(event)"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            alt="Instagram"
+            class="insta-icon"
+            id="instaIcon"
+          />
+        </a>
+      </div>
+
+    </div>
+    <p>Powered by <span class="highlight">AISA</span> <br> © 2025. All Rights Reserved.</p>
+  </footer>
+  <script>
+    function toggleInstaIcon(event) {
+      const icon = document.getElementById("instaIcon");
+      const defaultSrc = "https://cdn-icons-png.flaticon.com/512/2111/2111463.png";
+      const clickedSrc = "https://cdn-icons-png.flaticon.com/512/733/733558.png"; // Alternate pink icon
+
+      // Toggle between two icons
+      icon.src = icon.src.includes("733558") ? defaultSrc : clickedSrc;
+    }
+  </script>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
