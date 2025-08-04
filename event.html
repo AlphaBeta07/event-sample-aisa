@@ -5,7 +5,221 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tech Ignition 2025 – Event Details</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .matrix-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: repeating-linear-gradient(
+        to bottom,
+        #0f0 0px,
+        #0f0 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      opacity: 0.02;
+    }
+
+    .header-glow {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #0a0a0a;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0ff;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .glitch-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch-text {
+      font-size: 3rem;
+      font-weight: bold;
+      position: relative;
+      color: #00ffff;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .glitch-text::before {
+      color: #ff00ff;
+      z-index: 2;
+      animation: glitchTop 2s infinite linear;
+    }
+
+    .glitch-text::after {
+      color: #00ffff;
+      z-index: 1;
+      animation: glitchBottom 1.5s infinite linear;
+    }
+
+    @keyframes glitchTop {
+      0% {
+        clip-path: inset(0 0 90% 0);
+        transform: translate(2px, -2px);
+      }
+      25% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(-2px, 2px);
+      }
+      50% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(2px, -1px);
+      }
+      75% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(-1px, 2px);
+      }
+      100% {
+        clip-path: inset(80% 0 10% 0);
+        transform: translate(1px, -2px);
+      }
+    }
+
+    @keyframes glitchBottom {
+      0% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(-1px, 1px);
+      }
+      25% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(1px, -1px);
+      }
+      50% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(-2px, 2px);
+      }
+      75% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(2px, -2px);
+      }
+      100% {
+        clip-path: inset(0 0 90% 0);
+        transform: translate(-1px, 1px);
+      }
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1.5rem;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .event-card {
+      max-width: 500px;
+      padding: 2rem;
+      border: 1px solid #0ff;
+      border-radius: 12px;
+      background: rgba(0, 255, 255, 0.05);
+      box-shadow: 0 0 10px #0ff88f;
+      text-align: left;
+    }
+
+    .event-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      background: #111;
+      color: #aaa;
+    }
+
+    .highlight {
+      color: #0ff;
+    }
+
+    @media (max-width: 600px) {
+      .glitch-text {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 1rem;
+      }
+      .event-card {
+        padding: 1.2rem;
+      }
+    }.neon-glow {
+      color: #fff;
+      background: #ec4899;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #ec4899, 0 0 30px #0ff;
+      transition: all 0.3s ease;
+    }
+
+    .neon-glow:hover {
+      box-shadow: 0 0 15px #0ff, 0 0 25px #ec4899, 0 0 35px #0ff;
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
   <div class="matrix-overlay"></div>
@@ -13,20 +227,24 @@
   <header class="header-glow">
     <div class="logo">AISA</div>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" style="color: #0ff; text-shadow: 0 0 8px #0ff;">Home</a>
     </nav>
+  
   </header>
 
   <section class="hero">
-    <h1 class="glitch-text" data-text="Tech Ignition 2025">Tech Ignition 2025</h1>
+    <div class="glitch-wrapper">
+      <h1 class="glitch-text" data-text="TECH IGNITION 2025">TECH IGNITION 2025</h1>
+    </div>
     <p class="tagline">Join the Revolution in AI & Technology</p>
-    <p id="countdown" style="margin-top: 1.5rem; font-size: 1.2rem;"></p>
   </section>
 
   <section class="section">
-    <div class="event-card glass">
-      <p><strong>Date:</strong> 2nd August 2025</p>
-      <p><strong>Venue:</strong> Main Auditorium, University Campus</p>
+    <div class="event-card glass floating" style="max-width: 700px; margin: 0 auto;">
+      <img src="media/img.jpg" alt="Tech Ignition 2025" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;"/>
+      <h3 class="event-name">Tech Ignition 2025</h3>
+      <p class="event-date"><strong>Date:</strong> 2<sup>nd</sup> August 2025</p>
+      <p class="event-location"><strong>Venue:</strong> Main Auditorium, University Campus</p>
       <p><strong>Events:</strong></p>
       <ul style="list-style: none; padding: 0; font-size: 1rem;">
         <li>🤖 AI Coding Battles</li>
@@ -34,14 +252,14 @@
         <li>🎤 Talks by Industry Experts</li>
         <li>🚀 Project Showcases</li>
       </ul>
-      <a href="#" class="btn neon-glow">Register Now</a>
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="#" class="btn neon-glow pulse">Register Now</a>
+      </div>
+
     </div>
   </section>
-
   <footer>
     <p>Organized by <span class="highlight">AISA</span> 2025</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
