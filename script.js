@@ -71,3 +71,17 @@ window.addEventListener('resize', () => {
 //     ;
 //     container.appendChild(card);
 //   });
+ let galleryIndex = 0;
+  const galleryTrack = document.getElementById('galleryTrack');
+  const slides = document.querySelectorAll('.gallery-slide');
+
+  function moveGallery(direction) {
+    // Stop any playing videos when moving
+    const currentVideo = slides[galleryIndex].querySelector('video');
+    if (currentVideo) currentVideo.pause();
+
+    galleryIndex += direction;
+    if (galleryIndex < 0) galleryIndex = slides.length - 1;
+    if (galleryIndex >= slides.length) galleryIndex = 0;
+    galleryTrack.style.transform = `translateX(-${galleryIndex * 100}%)`;
+  }
